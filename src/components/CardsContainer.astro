@@ -1,8 +1,6 @@
 ---
 import formatVotes from "../services/formatVotes";
 import Header from "./Header.astro";
-import { Image } from "astro:assets";
-
 import StatusBadge from "./StatusBadge.astro";
 import getData from "../services/data";
 import PriceBadge from "./PriceBadge.astro";
@@ -21,7 +19,7 @@ const data = await getData();
         return (
           <article>
             <div class="relative">
-              <Image
+              <img
                 src={elem.image}
                 alt={elem.name}
                 height={210}
