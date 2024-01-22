@@ -1,0 +1,16 @@
+---
+import Button from "./Button.astro";
+---
+
+<header class="w-full text-center m-auto max-w-[490px]">
+  <h2 class="mb-2 font-bold text-3xl text-[#FEF7EE]">Our Collection</h2>
+  <p class="text-[#6F757C] font-medium text-pretty">
+    Introducing our Coffee Collection, a selection of unique coffees from
+    different roast types and origins, expertly roasted in small batches and
+    shipped fresh weekly.
+  </p>
+  <div class="flex gap-2 m-auto mt-4 justify-center">
+    <Button backgroundColor="active" content="All products" hover={false} />
+    <Button backgroundColor="none" content="Available Now" hover={true} />
+  </div>
+</header>

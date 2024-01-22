@@ -1,0 +1,13 @@
+---
+interface Props {
+  popular: boolean;
+}
+
+const { popular } = Astro.props;
+---
+
+<span
+  class=`${popular == false ? 'hidden' : 'block' } absolute top-3 left-3 px-2 text-xs py-1 font-bold text-sm text-center  text-[#111315] rounded-2xl bg-[#F6C768]`
+>
+  Popular
+</span>

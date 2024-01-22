@@ -1,0 +1,16 @@
+---
+interface Props {
+  backgroundColor: string;
+  content: string;
+  hover: boolean;
+}
+
+const { backgroundColor, content, hover } = Astro.props;
+---
+
+<button
+  class={`${backgroundColor === "active" ? "bg-[#6F757C]" : ""} ${
+    hover ? "hover:bg-[#6F757C]/20 transition-all" : ""
+  } py-2 px-4 text-[#FEF7EE] text-sm border-none rounded-lg font-bold cursor-pointer`}
+  >{content}</button
+>

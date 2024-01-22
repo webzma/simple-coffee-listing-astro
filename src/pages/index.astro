@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+import BgCoffe from "../../public/bg-cafe.jpg";
+import Layout from "../layouts/Layout.astro";
+import CardsContainer from "../components/CardsContainer.astro";
+---
+
+<Layout
+	title="Simple Coffee Listing"
+	description="Simple Coffee Listing by webzma"
+>
+	<main>
+		<Image
+			src={BgCoffe}
+			alt="Coffee background"
+			class="w-full object-cover h-72"
+		/>
+
+		<CardsContainer />
+	</main>
+</Layout>

@@ -1,0 +1,57 @@
+---
+import formatVotes from "../services/formatVotes";
+import Header from "./Header.astro";
+import { Image } from "astro:assets";
+
+import StatusBadge from "./StatusBadge.astro";
+import getData from "../services/data";
+import PriceBadge from "./PriceBadge.astro";
+const data = await getData();
+---
+
+<section
+  class="py-20 mt-40px m-auto bg-[#1B1D1F] w-4/5 -translate-y-36 rounded-lg px-4 sm:px-6"
+>
+  <Header />
+  <div
+    class="mt-8 grid justify-items-center grid-cols-1 md:grid-cols-2 gap-8 xl:grid-cols-3 w-4/5 m-auto"
+  >
+    {
+      data.map((elem) => {
+        return (
+          <article>
+            <div class="relative">
+              <Image
+                src={elem.image}
+                alt={elem.name}
+                height={210}
+                width={280}
+                class="relative rounded-lg"
+              />
+              <StatusBadge popular={elem.popular} />
+            </div>
+            <div class="flex justify-between items-center mt-2">
+              <p class="text-[#FEF7EE] font-bold text-lg">{elem.name}</p>
+              <PriceBadge>{elem.price}</PriceBadge>
+            </div>
+            <div class="flex justify-between items-center  mt-2">
+              <div class="flex items-center">
+                <img src="../../public/Star_fill.svg" alt="Star" class="m-0" />
+                <span class="font-bold ml-1 mr-1 text-sm text-[#FEF7EE]">
+                  {elem.rating}
+                </span>
+                <span class="text-sm text-[#6F757C]">
+                  {formatVotes(elem.votes)}
+                </span>
+              </div>
+
+              {!elem.available && (
+                <span class="flex font-bold text-red-400">Sold out</span>
+              )}
+            </div>
+          </article>
+        );
+      })
+    }
+  </div>
+</section>
